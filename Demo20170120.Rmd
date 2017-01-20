@@ -1,0 +1,194 @@
+---
+title: "Demo20170120"
+author: "David Chiu"
+date: "2017年1月20日"
+output: html_document
+---
+
+```{r}
+data("anscombe")
+View(anscombe)
+plot(y1 ~ x1, data = anscombe)
+fit <- lm(y1 ~ x1, data = anscombe)
+fit
+plot(y1 ~ x1, data = anscombe)
+abline(fit, col = "red")
+```
+
+
+```{r}
+3 + 8 
+3 - 8 
+5 * 5 
+11/ 2
+2 ^ 10
+11 %% 2
+
+
+a <- 3
+b =  2
+b <- 5
+c <- a + b
+c
+
+numer <- 17.8
+class(numer)
+
+char <- 'hello world' 
+class(char)
+
+logic <- TRUE
+class(logic)
+
+card_length <- 3
+card_width <- "5 inches"
+class(card_length)
+class(card_width)
+#card_length * card_width
+
+card_width <- 5
+card_length * card_width
+
+
+RRP <- 35.99
+Exchange <- 31.74
+RRP
+NTD <- RRP * Exchange
+NTD
+```
+
+## 向量
+```{r}
+height_vec <- c(180, 169, 173)
+height_vec[1]
+height_vec[3]
+height_vec[c(1,3)]
+
+name_vec <- c("Brian", 'Toby', 'Sherry')
+
+x <- c(1,2,3,7)
+y <- c(2,3,5,1)
+
+x + y
+x * y
+x - y
+x / y
+
+students <- c(44, 52, 60, 38, 19)
+students + 30 
+students + c(30)
+students + c(30,30 ,30, 30 ,30)
+
+
+1:20
+x <- 1:20
+y <- seq(1, 20, by=2)
+y
+
+?seq
+
+
+students <- c(44, 52, 60, 38, 19)
+sum(students)
+sum(students) / 5
+
+mean(students)
+max(students)
+min(students)
+summary(students)
+
+?sum
+
+height_vec <- c(180,169,173)
+height_vec
+
+names(height_vec) <- c('Brian', 'Toby', 'Sherry')
+height_vec
+
+name_vec <- c('Brian', 'Toby', 'Sherry')
+names(height_vec) <- name_vec
+
+height_vec
+height_vec > 175
+height_vec[height_vec > 175]
+
+height_vec[c(TRUE, FALSE, FALSE)]
+height_vec[c(1)]
+
+```
+
+## 使用向量計算BMI
+```{r}
+height_vec <- c(180, 169, 173)
+weight_vec <- c(73, 87, 43)
+names_vec  <- c('Brian', 'Toby', 'Sherry')
+
+bmi_vec <- weight_vec / (height_vec / 100) ^ 2
+names(bmi_vec) <- names_vec
+bmi_vec
+bmi_vec[bmi_vec < 18.5 | bmi_vec >= 24]
+
+```
+
+## Matrix
+```{r}
+kevin <- c(85, 73)
+marry <- c(72, 64)
+jerry <- c(59, 66)
+mat <- matrix(c(kevin, marry, jerry), nrow = 3, byrow = TRUE)
+
+colnames(mat) <- c('first', 'second')
+mat
+
+rownames(mat) <- c('kevin', 'marry', 'jerry')
+mat
+
+mat2 <- matrix(c(kevin, marry, jerry), nrow = 3, byrow = TRUE, dimnames = list(c('kevin', 'marry', 'jerry'), c('first', 'second')))
+
+mat2
+
+dim(mat2)
+nrow(mat2)
+ncol(mat2)
+
+mat2[1,]
+mat2[,1]
+
+2:3
+mat2[2:3,]
+
+mat2[2,1]
+
+mat2[2,1] <- 80
+mat2[2,1]
+
+mat2
+mat3 <- rbind(mat2, c(78, 63))
+rownames(mat3)[4] <- 'sam'
+mat3
+
+mat4 <- cbind(mat2, c(82, 77, 70))
+mat4
+colnames(mat4)[3] <- 'third'
+mat4
+
+rowSums(mat2)
+colSums(mat2)
+
+
+m1 <- matrix(1:4, byrow = TRUE, nrow = 2)
+m2 <- matrix(5:8, byrow = TRUE, nrow = 2)
+m1 + m2
+m1 - m2
+m1 * m2
+m1 / m2
+
+
+mat <- matrix(c(kevin, marry, jerry), nrow = 3, byrow = TRUE, dimnames = list(c('kevin', 'marry', 'jerry'), c('first', 'second')))
+
+mat[,'first'] * 0.4 + mat[, 'second'] * 0.6
+```
+
+
+
+
